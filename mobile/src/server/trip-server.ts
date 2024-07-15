@@ -28,13 +28,21 @@ async function create({
   emails_to_invite,
 }: TripCreate) {
   try {
+    console.log({
+      destination,
+      starts_at,
+      ends_at,
+      emails_to_invite,
+      owner_name: "Rodrigo Gonçalves",
+      owner_email: "rodrigo.rgtic@gmail.com"
+    })
     const { data } = await api.post<{ tripId: string }>("/trips", {
       destination,
       starts_at,
       ends_at,
       emails_to_invite,
       owner_name: "Rodrigo Gonçalves",
-      owner_email: "rodrigo.rgtic@gmail.com",
+      owner_email: "rodrigo.rgtic@gmail.com"
     })
 
     return data

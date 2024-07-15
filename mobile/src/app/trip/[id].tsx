@@ -108,8 +108,8 @@ export default function Trip() {
             await tripServer.update({
                 id: tripParams.id,
                 destination,
-                starts_at: dayjs(selectedDates.startsAt.dateString).toString(),
-                ends_at: dayjs(selectedDates.endsAt.dateString).toString()
+                starts_at: dayjs(selectedDates.startsAt.dateString).toISOString(),
+                ends_at: dayjs(selectedDates.endsAt.dateString).toISOString()
             })
 
             Alert.alert("Atualizar viagem", "Viagem atualizada com sucesso", [

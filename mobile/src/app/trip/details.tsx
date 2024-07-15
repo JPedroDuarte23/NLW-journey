@@ -69,7 +69,11 @@ export function Details({tripId}: {tripId: string}){
     async function getTripLinks() {
         try {
             const links = await linksServer.getLinksByTripId(tripId)
-            setLinks(links)
+            if(links === null){
+                setLinks([])
+            } else {
+                setLinks(links)
+            }
         } catch (error) {
             console.log(error)
         }

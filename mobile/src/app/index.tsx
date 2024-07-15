@@ -76,7 +76,8 @@ export default function Index() {
   }
 
   function handleAddEmail() {
-    setEmailToInvite((prevState) => prevState.toLowerCase())
+    const emailInUpperCase = emailToInvite.toLowerCase()
+    setEmailToInvite(emailInUpperCase)
     if(!validateInput.email(emailToInvite)) {
       return Alert.alert("Convidado", "E-mail inválido")
     }
@@ -108,8 +109,8 @@ export default function Index() {
 
       const newTrip = await tripServer.create({
         destination,
-        starts_at: dayjs(selectedDates.startsAt?.dateString).toString(),
-        ends_at: dayjs(selectedDates.endsAt?.dateString).toString(),
+        starts_at: dayjs(selectedDates.startsAt?.dateString).toISOString(),
+        ends_at: dayjs(selectedDates.endsAt?.dateString).toISOString(),
         emails_to_invite: emailsToInvite,
       })
 
@@ -276,7 +277,7 @@ export default function Index() {
             <Input.Field 
               placeholder="Digite o email do convidado" 
               keyboardType="email-address" 
-              onChangeText={(text) => setEmailToInvite(text)} 
+              onChangeText={(text) => setEmailToInvite(text.toLowerCase())} 
               value={emailToInvite}
               returnKeyType="send"
               onSubmitEditing={handleAddEmail}

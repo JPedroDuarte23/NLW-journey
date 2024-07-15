@@ -58,7 +58,7 @@ export function Activities({ tripDetails }: Props) {
 
             await activitiesServer.create({
                 tripId: tripDetails.id,
-                occurs_at: dayjs(activityDate).add(Number(activityHour), "h").toString(),
+                occurs_at: dayjs(activityDate).add(Number(activityHour), "h").toISOString(),
                 title: activityTitle
             })
 
