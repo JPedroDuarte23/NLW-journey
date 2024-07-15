@@ -1,4 +1,4 @@
-# nlw-journey
+# NLW-journey
 
 Projeto criado durante o intensivão a NLW que é um intensivão criado pela RocketSeat com 10 trilhas de desenvolvimento
 
